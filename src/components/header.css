@@ -1,0 +1,31 @@
+.header-container{
+    width: 100%;
+    height: 120px;
+    /* border: thick solid red; */
+    pad: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    grid-template-areas: 
+    'logo busqueda'
+    'iconos iconos';
+    grid-auto-flow: row dense;
+    align-items: center;
+    
+}
+.logo{
+    width: 80%;
+    height: auto;
+    grid-area: logo;
+}
+.icons{
+    grid-area: iconos;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+.dayicon,
+.darkicon{
+    margin: 0 0.8rem;
+}

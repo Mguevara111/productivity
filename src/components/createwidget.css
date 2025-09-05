@@ -1,0 +1,57 @@
+.widget-data{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--q-color);
+    
+}
+.close-modal-btn,
+.modal-button{
+    text-align: end;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color:var(--p-color)
+}
+.close-modalbtn{
+    background-color: transparent;
+    border: thin solid var(--p-color);
+    font-size: 1.2rem;
+}
+.modal-name{
+    font-size: 1.2rem;
+}
+.modal-select,
+.modal-input{
+    width: 200px;
+    height: auto;
+    background-color: transparent;
+    color:var(--t-color);
+    font-size: 1.2rem;
+    border: thin solid var(--p-color);
+}
+.widget-data-content{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.widget-data-visible{
+    display: block;
+}
+.input-data-widget{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input-data-widget *{
+    margin-bottom: 1.5rem;
+}
