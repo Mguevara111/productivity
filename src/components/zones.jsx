@@ -1,5 +1,6 @@
 import React from "react";
 import { zoneslist } from "./zonesbase.js";
+import './zones.css'
 
 export function Zones({handletimezone}){
     
@@ -8,9 +9,9 @@ export function Zones({handletimezone}){
     }
     
     return(
-        <select name="" id="" onChange={changezone}>
+        <select name="" id="" onChange={changezone} className="zones-select">
         {zoneslist.map((el,index)=>
-            <option value={el} key={index}>{el}</option>
+            <option value={el.timezone} key={index}>{el.value}-{el.timezone}</option>
         )}
        </select>
     );

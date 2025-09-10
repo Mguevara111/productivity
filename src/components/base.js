@@ -9,7 +9,8 @@ export const widgets=[
         id:2,
         type:'Date/Time',
         name:'Local Date/Time',
-        elements:[]
+        timezone:'',
+        
     },
     {
         id:3,
@@ -21,7 +22,7 @@ export const widgets=[
         id:4,
         type:'Weather',
         name:'Local Weather',
-        elements:[]
+        city:'Quito'
     },
 ];
 

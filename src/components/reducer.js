@@ -1,16 +1,26 @@
 
 let widgetfind;
 let newelement;
+let newwidget;
 export function Reducer(state,action){
     switch(action.type){
         case 'addwidget':
             let widgetid=crypto.randomUUID();
-            let newwidget={
-                id:widgetid,
-                type:action.payload.type,
-                name:action.payload.content,
-                elements:[]
+            const newpayload={
+                    id:widgetid,
+                    type:action.payload.type,
+                    name:action.payload.content,
+                }
+            if(action.payload.type==='Date/Time'){
+                //console.log(action.payload)
+              newwidget={...newpayload,timezone:action.payload.timezone}
+                
+            }else if(action.payload.type==='Weather'){
+               newwidget= {...newpayload,city:action.payload.city}
+            }else{
+                newwidget={...newpayload,elements:[]}
             }
+            
             return [
                 ...state,newwidget
             ]
@@ -97,6 +107,7 @@ export function Reducer(state,action){
                     }
                 })
                 return nnote
+        
         default:
             return state;
     }

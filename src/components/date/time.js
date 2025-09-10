@@ -1,7 +1,16 @@
 import { useEffect,useState } from "react";
 
-export function hour(tz){
+export function useHour(tz){
+    
+    //console.log(tz)
     const [data,setData]=useState('');
+
+    useEffect(()=>{
+        if (!tz) {
+            tz='America/Bogota'
+            //return; // Salir si tz no está definido para evitar el error
+        }
+    const now = new Date();
     let opt={
         year:'numeric',
         month:'numeric',
@@ -10,17 +19,16 @@ export function hour(tz){
         minute:'2-digit',
         second:'2-digit',
         hour12:false,
-        timezone:tz
+        timeZone:tz
     }
-
-    useEffect(()=>{
        let si=setInterval(() => {
-            let dates=new Intl.DateTimeFormat('es-us',opt).format()
-            setData(dates)
+            let dates=new Intl.DateTimeFormat('es-US',opt)
+            const formattedTime = dates.format(now);
+            setData(formattedTime)
         }, 1000);
         return ()=>{
             clearInterval(si)
         }
-    },[data])
+    })
     return data;
 }

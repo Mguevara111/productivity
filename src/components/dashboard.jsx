@@ -5,8 +5,8 @@ import removeicon from '../assets/icons/playlist_remove_24dp_000000_FILL0_wght40
 import './dashboard.css';
 import { useState } from "react";
 import { Cwelement } from "./cwelement.jsx";
-import { hour } from "./date/time.js";
-import { Datetime } from "./datetime.jsx";
+import { Datetimecomponent } from "./datetimecomponent.jsx";
+import { Wheatercomponent } from "./weathercomponent.jsx";
 
 const initialnote={
     keynote:'',
@@ -19,13 +19,13 @@ export function Dashboard({activemodal,handleactivemodal,dispatch,wstate}){
     const [noteedit,setNoteedit]=useState(false);   //edicion notas
     const [notevalue,setNotevalue]=useState('');    //valor el datoeditable en notas
     const [notekey,setNotekey]=useState('');
-    const [timezone,setTimezone]=useState('');
+    
 
-    // let datetime=hour('América/Bogotá')
 
     const handleclosemodal=()=>{
         setIdelement('')
         setWshow(!wshow)
+        setDatetime('')
     }
 
     const handleaddelements=(e)=>{
@@ -82,14 +82,7 @@ export function Dashboard({activemodal,handleactivemodal,dispatch,wstate}){
             
         })
     }
-
-    const handletimezone=(zona)=>{
-        console.log(zona)
-        /*recibo la zona para aplicarla en un hour pero no puedo llamarlo aqui, sino fuera de una funcion*/
-        // let datehour=hour(zona)
-        // setTimezone(datehour)
-    }
-
+    
 
     return(
         <>
@@ -101,7 +94,7 @@ export function Dashboard({activemodal,handleactivemodal,dispatch,wstate}){
                         <div className="item-title">
                             <h2 className="w-title">{el.name}</h2>
                             <div>
-                                {el.type!=='Date/Time'&&<img src={addicon} alt="add-icon" data-id={el.id} className="add-icon" onClick={handleaddelements}/>}
+                                {el.type!=='Date/Time'&&el.type!=='Weather'&&<img src={addicon} alt="add-icon" data-id={el.id} className="add-icon" onClick={handleaddelements}/>}
                                 <img src={removeicon} data-id={el.id} alt="remove-icon" onClick={(e)=>dispatch({type:'removewidget',payload:e.target.dataset.id})} />
                             </div>
                         </div>
@@ -131,8 +124,9 @@ export function Dashboard({activemodal,handleactivemodal,dispatch,wstate}){
                                 ))
                             
                             :el.type==='Date/Time'?
-                                <p>{timezone}</p>
-                            :el.elements.map(other=><li key={other.key} className="li-elecontent">{other.elecontent}</li>)
+                               <Datetimecomponent  timezone={el.timezone}></Datetimecomponent>
+                            
+                            :<Wheatercomponent key={el.id} city={el.city}></Wheatercomponent>
                             }
                            
                         </ul>
@@ -142,7 +136,7 @@ export function Dashboard({activemodal,handleactivemodal,dispatch,wstate}){
                   
             </article>
         </section>
-        {activemodal&&<CreateWidget activemodal={activemodal} handleactivemodal={handleactivemodal} dispatch={dispatch} handletimezone={handletimezone}></CreateWidget>}
+        {activemodal&&<CreateWidget activemodal={activemodal} handleactivemodal={handleactivemodal} dispatch={dispatch}></CreateWidget>}
         {wshow&&<Cwelement handleclosemodal={handleclosemodal} dispatch={dispatch} idelement={idelement}></Cwelement>}
         
         </>

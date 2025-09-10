@@ -1,0 +1,8 @@
+.zones-select{
+    width: 350px;
+    height: auto;
+    background-color: transparent;
+    color:var(--t-color);
+    font-size: 1.2rem;
+    border: thin solid var(--p-color);
+}
