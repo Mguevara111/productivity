@@ -25,6 +25,7 @@ export function Reducer(state,action){
                 ...state,newwidget
             ]
             case 'removewidget':
+                //console.log(action.payload)
                 widgetfind=findid(state,action.payload)
                 //console.log('wf',widgetfind)
                 const newstate=state.filter(el=>el.id!==widgetfind.id)

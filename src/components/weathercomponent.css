@@ -1,3 +1,6 @@
+.general-weather{
+    text-align: center;
+}
 .weather-container{
     width: 100%;
     height: auto;
@@ -6,8 +9,13 @@
     align-items: center;
 }
 .weather-container > div{
+    width: 50%;
+    height: 130px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.weather-container p{
+    margin: 0.2rem;
 }

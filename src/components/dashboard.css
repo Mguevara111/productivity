@@ -1,8 +1,11 @@
 .dashboard-container{
     width: 100%;
-    height:auto;
+    min-height:calc(100vh - 120px);
     /* border: thick solid green; */
     text-align: center;
+}
+.dash-title{
+    margin: 0;
 }
 .dash-items{
     display: flex;
@@ -20,6 +23,7 @@
     padding: 0 0.5rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-bottom: thin solid var(--p-color);
 }
 .w-title{

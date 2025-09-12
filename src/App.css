@@ -16,3 +16,10 @@ body {
     --t-color:#715A5A;
     --q-color:#D3DAD9;
 }
+.night-mode{
+  background-color: black;
+  color: var(--q-color);
+}
+.icon-dark-mode{
+  color: white;
+}

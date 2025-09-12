@@ -1,6 +1,5 @@
 import React from "react";
 import { CreateWidget } from "./createwidget.jsx";
-import addicon from '../assets/icons/add_box_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg';
 import removeicon from '../assets/icons/playlist_remove_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg';
 import './dashboard.css';
 import { useState } from "react";
@@ -13,7 +12,7 @@ const initialnote={
     contentnote:''
 };
 
-export function Dashboard({activemodal,handleactivemodal,dispatch,wstate}){
+export function Dashboard({activemodal,handleactivemodal,dispatch,wstate,night}){
     const [idelement,setIdelement]=useState('');
     const [wshow,setWshow]=useState(false);
     const [noteedit,setNoteedit]=useState(false);   //edicion notas
@@ -25,7 +24,7 @@ export function Dashboard({activemodal,handleactivemodal,dispatch,wstate}){
     const handleclosemodal=()=>{
         setIdelement('')
         setWshow(!wshow)
-        setDatetime('')
+        
     }
 
     const handleaddelements=(e)=>{
@@ -86,16 +85,18 @@ export function Dashboard({activemodal,handleactivemodal,dispatch,wstate}){
 
     return(
         <>
-        <section className="dashboard-container">
-            <h2>Dashboard</h2>
+        <section className={`dashboard-container ${night?"night-mode":""}`}>
+            <h2 className="dash-title">Dashboard</h2>
+            
             <article className="dash-items">
                 {wstate.map(el=>
                     <div key={el.id} className="item">
                         <div className="item-title">
                             <h2 className="w-title">{el.name}</h2>
                             <div>
-                                {el.type!=='Date/Time'&&el.type!=='Weather'&&<img src={addicon} alt="add-icon" data-id={el.id} className="add-icon" onClick={handleaddelements}/>}
-                                <img src={removeicon} data-id={el.id} alt="remove-icon" onClick={(e)=>dispatch({type:'removewidget',payload:e.target.dataset.id})} />
+                                {el.type!=='Date/Time'&&el.type!=='Weather'&&<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentcolor" data-id={el.id} className={`add-icon ${night?"icon-dark-mode":""}`} onClick={handleaddelements}><path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z" data-id={el.id}/></svg>}
+                                {/* <img src={removeicon} data-id={el.id} alt="remove-icon" onClick={(e)=>dispatch({type:'removewidget',payload:e.target.dataset.id})} /> */}
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentcolor" data-id={el.id} onClick={(e)=>dispatch({type:'removewidget',payload:e.target.dataset.id})}><path d="m576-80-56-56 104-104-104-104 56-56 104 104 104-104 56 56-104 104 104 104-56 56-104-104L576-80ZM120-320v-80h280v80H120Zm0-160v-80h440v80H120Zm0-160v-80h440v80H120Z" data-id={el.id}/></svg>
                             </div>
                         </div>
                         <ul className="ul-elecontent">

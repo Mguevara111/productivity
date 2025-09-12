@@ -8,7 +8,7 @@ export function Wheatercomponent({city}){
         return
     }
     const apiKey = import.meta.env.VITE_API_KEY;
-    console.log('API Key leída:', apiKey);
+    
     const [data,setData]=useState(null);
     useEffect(()=>{
         const controller=new AbortController();
@@ -39,10 +39,9 @@ export function Wheatercomponent({city}){
     },[])
 
     return(
-        <div>
-            <h2>datos weather</h2>
+        <div className="general-weather">
             <a href="https://www.weatherapi.com/" title="Free Weather API" target="_blank">
-            api wheater
+            Visit weather API
             </a>
             {data!==null&&
             <section className="weather-container">

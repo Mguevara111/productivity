@@ -9,14 +9,28 @@ import { widgets } from "./base.js";
 export function Mainprod(){
     const [activemodal,setActivemodal]=useState(false);
     const [wstate,dispatch]=useReducer(Reducer,widgets)
+    const [night,setNight]=useState(false);       //aqui va estado tema obscuto / claro
+
 
     const handleactivemodal=()=>{
         setActivemodal(!activemodal)
     }
+
+    const handlechangetheme=(e)=>{
+       if(e.target.dataset.name==='day'){
+        //console.log('modo dia')
+        setNight(false)
+       }else{
+        //console.log('modo noche')
+        setNight(true)
+       }
+        //aqui buscar poner usar la logica para tema obscuro
+    }
+
     return(
         <>
-            <Header dispatch={dispatch} handleactivemodal={handleactivemodal}></Header>
-            <Dashboard activemodal={activemodal} handleactivemodal={handleactivemodal} dispatch={dispatch} wstate={wstate}></Dashboard >
+            <Header dispatch={dispatch} handleactivemodal={handleactivemodal} handlechangetheme={handlechangetheme} night={night}></Header>
+            <Dashboard activemodal={activemodal} handleactivemodal={handleactivemodal} dispatch={dispatch} wstate={wstate} night={night}></Dashboard >
         </>
     );
 }
