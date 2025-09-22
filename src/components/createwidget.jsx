@@ -27,7 +27,7 @@ export function CreateWidget({handleactivemodal,dispatch}){
     },[datetime])
 
     const putwidgetname=(e)=>{
-        console.log(e.target.value)
+        //console.log(e.target.value)
         setWidget({...widget,type:e.target.value})
         setSelectwidget(true)
         switch (e.target.value) {
@@ -76,7 +76,7 @@ export function CreateWidget({handleactivemodal,dispatch}){
     return(
             
         <aside className="widget-data">
-            <div className="widget-data-content"></div>
+            <div className="widget-data-content">
             
             <div className="close-modal-btn">
                 <button onClick={handleactivemodal} className="close-modalbtn">X</button>
@@ -99,7 +99,7 @@ export function CreateWidget({handleactivemodal,dispatch}){
             </>
             }
             </article>
-        
+            </div>
         </aside>  
 
     );

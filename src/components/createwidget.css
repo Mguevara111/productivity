@@ -9,7 +9,16 @@
     background-color: var(--q-color);
     
 }
-.close-modal-btn,
+.widget-data-content{
+    width: 100%;
+    height: auto;
+}
+.close-modal-btn{
+    width: 100%;
+    height: auto;
+    text-align: end;
+    padding: 0.5rem;
+}
 .modal-button{
     text-align: end;
     padding: 1rem;
@@ -54,4 +63,18 @@
 }
 .input-data-widget *{
     margin-bottom: 1.5rem;
+}
+@media screen and (min-width:30em){
+    .widget-data{
+        display: flex;
+        justify-content: center;
+        background-color: rgba(211, 218, 217, 0.9);
+    }
+    
+    .widget-data-content{
+        width: 605px;
+        height: 50vh;
+        
+    }
+    
 }

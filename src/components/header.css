@@ -29,3 +29,10 @@
 .darkicon{
     margin: 0 0.8rem;
 }
+@media screen and (min-width:30em){
+     .logo{
+        width: 150px;
+        height: 68px;
+    }
+      
+}

@@ -24,12 +24,12 @@ export function Mainprod(){
         //console.log('modo noche')
         setNight(true)
        }
-        //aqui buscar poner usar la logica para tema obscuro
+        
     }
 
     return(
         <>
-            <Header dispatch={dispatch} handleactivemodal={handleactivemodal} handlechangetheme={handlechangetheme} night={night}></Header>
+            <Header dispatch={dispatch} handleactivemodal={handleactivemodal} handlechangetheme={handlechangetheme} night={night} wstate={wstate}></Header>
             <Dashboard activemodal={activemodal} handleactivemodal={handleactivemodal} dispatch={dispatch} wstate={wstate} night={night}></Dashboard >
         </>
     );

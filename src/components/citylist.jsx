@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const cities=['---','Quito','London','Moscow','Paris','Mexico','Lisbon','Berlin','Milan','Athens']
+const cities=['---','Quito','London','Moscow','Paris','Mexico','Lisbon','Berlin','Milan','Athens','Guatemala']
 
 export function Citylist({handleselectcity}){
     const stylecity={

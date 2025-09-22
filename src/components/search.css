@@ -2,3 +2,10 @@
     grid-area: busqueda;
     
 }
+
+@media screen and (min-width:30em){
+   .search-container{
+        justify-self: end;
+        padding: 0.5rem;
+   }
+}

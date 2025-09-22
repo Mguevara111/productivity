@@ -85,12 +85,12 @@ export function Dashboard({activemodal,handleactivemodal,dispatch,wstate,night})
 
     return(
         <>
-        <section className={`dashboard-container ${night?"night-mode":""}`}>
+        <section className={`dashboard-container ${night?"night-mode":""} ${activemodal||wshow?"blur-all":""}`}>
             <h2 className="dash-title">Dashboard</h2>
             
             <article className="dash-items">
                 {wstate.map(el=>
-                    <div key={el.id} className="item">
+                    <div key={el.id} className="item" id={el.name}>
                         <div className="item-title">
                             <h2 className="w-title">{el.name}</h2>
                             <div>
